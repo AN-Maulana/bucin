@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Untuk Indrisari Ismail ❤️ — Hadiah Spesial Dari Hati</title>
+  <meta name="description" content="Sebuah website romantis dan penuh cinta spesial untuk Indrisari Ismail (Indri). Dibuat dengan segenap rasa sayang.">
+  <meta name="theme-color" content="#ff758f">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Dancing Script / Caveat / Sacramento -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Sacramento&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==============================================
+       AUDIO PLAYER (MUSIK LATAR ROMANTIS)
+       ============================================== -->
+  <!-- GANTI FILE MUSIK DI SINI: Letakkan file musik di assets/music/romantic.mp3 -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/music/romantic.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Floating Music Toggle Controller -->
+  <button id="music-toggle" class="music-btn" aria-label="Toggle Musik Romantis" title="Putar/Hentikan Musik">
+    <span class="music-icon">🎵</span>
+    <span class="music-wave">
+      <span></span><span></span><span></span><span></span>
+    </span>
+  </button>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="scroll-progress" class="scroll-progress-bar"></div>
+
+  <!-- Background Particle & Floating Hearts Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ==============================================
+       1. OPENING SCREEN (FULLSCREEN INTRO)
+       ============================================== -->
+  <section id="opening-screen" class="opening-overlay active">
+    <div class="opening-card glass-panel animate-pop">
+      <div class="opening-badge">✨ A Special Gift For You ✨</div>
+      <p class="opening-intro">Untuk seseorang yang paling spesial...</p>
+      
+      <!-- GANTI NAMA PACAR DI SINI JIKA DIPERLUKAN -->
+      <h1 class="opening-title gradient-text-romantic">
+        INDRISARI ISMAIL <span class="heart-pulse">❤️</span>
+      </h1>
+      
+      <!-- GANTI TANGGAL JADIAN DI SINI -->
+      <div class="opening-date-badge">
+        <span class="calendar-icon">📅</span> 25 Agustus 2020
+      </div>
+      
+      <p class="opening-subtext">Sentuh hadiah di bawah untuk membuka semua kenangan &amp; rasa sayang ini...</p>
+      
+      <button id="btn-open-gift" class="btn-romantic btn-glow">
+        <span class="btn-icon">💌</span> Buka Hadiah
+      </button>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       MAIN CONTENT WRAPPER
+       ============================================== -->
+  <main id="main-content" class="main-wrapper hidden">
+
+    <!-- Floating Navigation Bar -->
+    <header class="navbar-glass">
+      <div class="nav-container">
+        <a href="#hero" class="nav-brand">Lana &amp; Kiki <span class="heart-inline">❤️</span></a>
+        <nav class="nav-links">
+          <a href="#counter">Waktu Kita</a>
+          <a href="#story">Cerita</a>
+          <a href="#letter">Surat</a>
+          <a href="#reasons">Alasan</a>
+          <a href="#gallery">Momen</a>
+          <a href="#game">Mini Game</a>
+          <a href="#wishes">Harapan</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ==============================================
+         2. HERO SECTION
+         ============================================== -->
+    <section id="hero" class="section hero-section">
+      <div class="container hero-container">
+        <div class="hero-badge reveal-item">
+          <span>💖 Dedicated with All My Heart</span>
+        </div>
+        
+        <h1 class="hero-title reveal-item">
+          Untuk <span class="highlight-name">Kiki</span>, <span class="heart-pulse">❤️</span>
+        </h1>
+        
+        <div class="hero-typing-wrapper reveal-item">
+          <span id="typing-text" class="typing-text"></span><span class="typing-cursor">|</span>
+        </div>
+
+        <p class="hero-subtitle reveal-item">
+          Sejak <strong>25 Agustus 2020</strong>, ada satu nama yang selalu punya tempat paling spesial dan abadi di hati Lana.
+        </p>
+
+        <div class="hero-actions reveal-item">
+          <a href="#story" class="btn-romantic btn-primary smooth-scroll">
+            <span>💖</span> Lihat Cerita Kita
+          </a>
+          <a href="#letter" class="btn-romantic btn-secondary smooth-scroll">
+            <span>💌</span> Buka Surat Cinta
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         3. LOVE COUNTER SECTION
+         ============================================== -->
+    <section id="counter" class="section counter-section">
+      <div class="container">
+        <div class="section-header text-center reveal-item">
+          <span class="section-tag">⏳ Perjalanan Waktu</span>
+          <h2 class="section-title">Sudah Berapa Lama Kita Bersama? <span class="heart-pulse">❤️</span></h2>
+          <p class="section-desc">Setiap detik yang terlewati bersama Kiki adalah anugerah yang tak ternilai harganya bagi Lana.</p>
+        </div>
+
+        <!-- Realtime Timer Cards -->
+        <div class="counter-grid reveal-item">
+          <div class="counter-card glass-card">
+            <span class="counter-number" id="count-days">0</span>
+            <span class="counter-label">Hari</span>
+            <span class="counter-glow"></span>
+          </div>
+          <div class="counter-card glass-card">
+            <span class="counter-number" id="count-hours">00</span>
+            <span class="counter-label">Jam</span>
+            <span class="counter-glow"></span>
+          </div>
+          <div class="counter-card glass-card">
+            <span class="counter-number" id="count-minutes">00</span>
+            <span class="counter-label">Menit</span>
+            <span class="counter-glow"></span>
+          </div>
+          <div class="counter-card glass-card">
+            <span class="counter-number" id="count-seconds">00</span>
+            <span class="counter-label">Detik</span>
+            <span class="counter-glow"></span>
+          </div>
+        </div>
+
+        <div class="counter-footer text-center reveal-item">
+          <p class="counter-quote">
+            ✨ "Dan semoga cerita ini terus bertambah setiap harinya, hingga selamanya." ✨
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         4. OUR STORY (TIMELINE SECTION)
+         ============================================== -->
+    <section id="story" class="section story-section">
+      <div class="container">
+        <div class="section-header text-center reveal-item">
+          <span class="section-tag">📖 Jejak Langkah</span>
+          <h2 class="section-title">Cerita Kita <span class="heart-pulse">❤️</span></h2>
+          <p class="section-desc">Untaian memori indah yang selalu tertulis di lembaran hati Lana.</p>
+        </div>
+
+        <!-- Vertical Interactive Timeline -->
+        <div class="timeline-wrapper">
+          <div class="timeline-line"></div>
+
+          <!-- Timeline Item 1 -->
+          <!-- EDIT TIMELINE DISINI: Tanggal jadian -->
+          <div class="timeline-item reveal-item left">
+            <div class="timeline-dot">💌</div>
+            <div class="timeline-card glass-card">
+              <span class="timeline-date">25 Agustus 2020</span>
+              <h3 class="timeline-heading">Hari Dimana Semuanya Dimulai</h3>
+              <p class="timeline-text">
+                "Hari ketika dua hati memilih untuk saling berjalan berdampingan. Titik awal dari sebuah takdir yang begitu indah."
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <!-- EDIT TIMELINE DISINI: Babak Pertama -->
+          <div class="timeline-item reveal-item right">
+            <div class="timeline-dot">❤️</div>
+            <div class="timeline-card glass-card">
+              <span class="timeline-date">First Chapter</span>
+              <h3 class="timeline-heading">Awal Cerita Yang Berarti</h3>
+              <p class="timeline-text">
+                "Awal dari cerita kecil yang ternyata menjadi sesuatu yang sangat berarti. Belajar saling mengenal, berbagi tawa, dan menemukan kenyamanan."
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <!-- EDIT TIMELINE DISINI: Hari Ini & Seterusnya -->
+          <div class="timeline-item reveal-item left">
+            <div class="timeline-dot">🌹</div>
+            <div class="timeline-card glass-card">
+              <span class="timeline-date">Today &amp; Always</span>
+              <h3 class="timeline-heading">Masih Memilih Satu Sama Lain</h3>
+              <p class="timeline-text">
+                "Masih bersama, masih belajar saling memahami, dan masih memilih Kiki setiap hari tanpa pernah ragu."
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         5. LOVE LETTER (INTERACTIVE ENVELOPE)
+         ============================================== -->
+    <section id="letter" class="section letter-section">
+      <div class="container">
+        <div class="section-header text-center reveal-item">
+          <span class="section-tag">💌 Dari Lubuk Hatiku</span>
+          <h2 class="section-title">Untuk Kiki... <span class="heart-pulse">❤️</span></h2>
+          <p class="section-desc">Sentuh amplop di bawah ini untuk membaca surat khusus untuk Kiki.</p>
+        </div>
+
+        <div class="envelope-container reveal-item">
+          <!-- Interactive Envelope -->
+          <div id="envelope-wrapper" class="envelope-wrapper">
+            <div class="envelope">
+              <div class="envelope-front">
+                <div class="envelope-flap" id="envelope-flap"></div>
+                <div class="envelope-pocket"></div>
+                <div class="wax-seal" id="wax-seal" title="Klik untuk membuka surat">
+                  <span class="seal-icon">❤️</span>
+                  <span class="seal-tooltip">Klik Buka</span>
+                </div>
+                <div class="envelope-label">
+                  <span>💌 Ada surat untuk Kiki</span>
+                </div>
+              </div>
+
+              <!-- Unfolding Paper Letter -->
+              <div class="letter-paper" id="letter-paper">
+                <div class="letter-inner">
+                  <button class="letter-close-btn" id="letter-close-btn" title="Tutup / Lipat Surat">&times;</button>
+                  
+                  <div class="letter-stamp">🌹 My Love</div>
+                  <h3 class="letter-salutation">Dear syg,</h3>
+                  
+                  <div class="letter-body">
+                    <p>Lana mungkin bukan orang yang paling sempurna.<br>
+                    Lana juga mungkin masih sering melakukan kesalahan.</p>
+
+                    <p>Tapi satu hal yang Lana tahu,<br>
+                    Lana sangat bersyukur bisa mengenal kiki.</p>
+
+                    <p>Sejak <strong>25 Agustus 2020</strong>,<br>
+                    cerita kita dimulai.</p>
+
+                    <p>Terima kasih sudah menjadi bagian dari hidup Lana.<br>
+                    Terima kasih untuk setiap senyum,<br>
+                    setiap cerita,<br>
+                    setiap perhatian,<br>
+                    dan setiap waktu yang kita lewati bersama.</p>
+
+                    <p>Kalau suatu hari nanti kita melihat kembali website kecil ini,<br>
+                    Lana berharap kita masih bisa tersenyum dan berkata:</p>
+
+                    <blockquote class="letter-quote">
+                      "Ternyata kita sudah sejauh ini."
+                    </blockquote>
+
+                    <p>Lana tidak tahu apa yang akan terjadi di masa depan.<br>
+                    Tapi kalau boleh memilih,<br>
+                    Lana ingin terus menulis cerita itu bersama kiki.</p>
+
+                    <p>Untuk sekarang,<br>
+                    untuk nanti,<br>
+                    dan untuk semua cerita yang belum kita tulis.</p>
+
+                    <p class="letter-signature">
+                      <strong>I love you, syg. ❤️</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="envelope-hint">✨ Tip: Klik amplop / cap lilin hati untuk membuka surat cinta ini ✨</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         6. REASONS I LOVE YOU SECTION
+         ============================================== -->
+    <section id="reasons" class="section reasons-section">
+      <div class="container">
+        <div class="section-header text-center reveal-item">
+          <span class="section-tag">💕 Mengapa Hatiku Memilihmu</span>
+          <h2 class="section-title">Alasan Lana Sayang Kiki <span class="heart-pulse">❤️</span></h2>
+          <p class="section-desc">Meskipun rasa sayang Lana tak butuh alasan, inilah jutaan hal kecil dari Kiki yang membuat Lana selalu jatuh cinta.</p>
+        </div>
+
+        <div class="reasons-grid">
+          <!-- Card 01 -->
+          <div class="reason-card glass-card reveal-item" data-tilt>
+            <div class="reason-number">01</div>
+            <div class="reason-icon">😊</div>
+            <h3 class="reason-title">Senyum Kiki</h3>
+            <p class="reason-text">"Karena senyum Kiki selalu berhasil membuat hari Lana terasa lebih baik dan menenangkan."</p>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="reason-card glass-card reveal-item" data-tilt>
+            <div class="reason-number">02</div>
+            <div class="reason-icon">🌸</div>
+            <h3 class="reason-title">Cara Kiki Perhatian</h3>
+            <p class="reason-text">"Hal-hal kecil yang Kiki lakukan ternyata berarti begitu besar buat Lana."</p>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="reason-card glass-card reveal-item" data-tilt>
+            <div class="reason-number">03</div>
+            <div class="reason-icon">✨</div>
+            <h3 class="reason-title">Kiki Adalah Kiki</h3>
+            <p class="reason-text">"Lana tidak butuh Kiki menjadi sempurna. Lana suka Kiki apa adanya dengan segala keunikan Kiki."</p>
+          </div>
+
+          <!-- Card 04 -->
+          <div class="reason-card glass-card reveal-item" data-tilt>
+            <div class="reason-number">04</div>
+            <div class="reason-icon">🌟</div>
+            <h3 class="reason-title">Kehadiran Kiki</h3>
+            <p class="reason-text">"Karena sejak ada Kiki, banyak hal sederhana di dunia ini terasa jauh lebih berarti dan berwarna bagi Lana."</p>
+          </div>
+
+          <!-- Card 05 -->
+          <div class="reason-card glass-card reveal-item" data-tilt>
+            <div class="reason-number">05</div>
+            <div class="reason-icon">💖</div>
+            <h3 class="reason-title">Semua Tentang Kiki</h3>
+            <p class="reason-text">"Entah kenapa, setiap harinya selalu ada alasan baru bagi Lana untuk semakin sayang sama Kiki."</p>
+          </div>
+
+          <!-- Card 06 -->
+          <div class="reason-card glass-card reveal-item" data-tilt>
+            <div class="reason-number">06</div>
+            <div class="reason-icon">🌹</div>
+            <h3 class="reason-title">Kiki</h3>
+            <p class="reason-text">"Sesederhana itu. Lana sayang kiki karena kiki adalah bidadari terindah Lana."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         7. PHOTO MEMORY (POLAROID GALLERY)
+         ============================================== -->
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <div class="section-header text-center reveal-item">
+          <span class="section-tag">📸 Galeri Kenangan</span>
+          <h2 class="section-title">Photo Memory <span class="heart-pulse">❤️</span></h2>
+          <p class="section-desc">Momen-momen manis yang selalu abadi di ingatan Lana. Klik foto untuk melihat lebih jelas!</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Foto 1: First Memory -->
+          <div class="polaroid-card reveal-item" data-img-src="assets/images/First Memory .png" data-fallback="assets/images/foto1.svg" data-caption="First Memory ❤️">
+            <div class="polaroid-pin">📌</div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/First Memory .png" onerror="this.onerror=null; this.src='assets/images/foto1.svg';" alt="First Memory" loading="lazy">
+            </div>
+            <p class="polaroid-caption">First Memory ❤️</p>
+          </div>
+
+          <!-- Foto 2: Favorite Moment -->
+          <div class="polaroid-card reveal-item" data-img-src="assets/images/Favorite Moment .png" data-fallback="assets/images/foto2.svg" data-caption="Favorite Moment 🌹">
+            <div class="polaroid-pin">📎</div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/Favorite Moment .png" onerror="this.onerror=null; this.src='assets/images/foto2.svg';" alt="Favorite Moment" loading="lazy">
+            </div>
+            <p class="polaroid-caption">Favorite Moment 🌹</p>
+          </div>
+
+          <!-- Foto 3: Little Happiness -->
+          <div class="polaroid-card reveal-item" data-img-src="assets/images/Little Happiness .png" data-fallback="assets/images/foto3.svg" data-caption="Little Happiness 🎀">
+            <div class="polaroid-pin">📌</div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/Little Happiness .png" onerror="this.onerror=null; this.src='assets/images/foto3.svg';" alt="Little Happiness" loading="lazy">
+            </div>
+            <p class="polaroid-caption">Little Happiness 🎀</p>
+          </div>
+
+          <!-- Foto 4: Just Us -->
+          <div class="polaroid-card reveal-item" data-img-src="assets/images/Just Us .png" data-fallback="assets/images/foto4.svg" data-caption="Just Us 🌙">
+            <div class="polaroid-pin">📎</div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/Just Us .png" onerror="this.onerror=null; this.src='assets/images/foto4.svg';" alt="Just Us" loading="lazy">
+            </div>
+            <p class="polaroid-caption">Just Us 🌙</p>
+          </div>
+
+          <!-- Foto 5: Beautiful Day -->
+          <div class="polaroid-card reveal-item" data-img-src="assets/images/Beautiful Day.png" data-fallback="assets/images/foto5.svg" data-caption="Beautiful Day ☀️">
+            <div class="polaroid-pin">📌</div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/Beautiful Day.png" onerror="this.onerror=null; this.src='assets/images/foto5.svg';" alt="Beautiful Day" loading="lazy">
+            </div>
+            <p class="polaroid-caption">Beautiful Day ☀️</p>
+          </div>
+
+          <!-- Foto 6: Forever Memory -->
+          <div class="polaroid-card reveal-item" data-img-src="assets/images/Forever Memory.png" data-fallback="assets/images/foto6.svg" data-caption="Forever Memory ♾️">
+            <div class="polaroid-pin">📎</div>
+            <div class="polaroid-img-wrapper">
+              <img src="assets/images/Forever Memory.png" onerror="this.onerror=null; this.src='assets/images/foto6.svg';" alt="Forever Memory" loading="lazy">
+            </div>
+            <p class="polaroid-caption">Forever Memory ♾️</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal for Photos -->
+    <div id="photo-modal" class="photo-modal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content glass-card">
+        <button id="modal-close" class="modal-close-btn">&times;</button>
+        <div class="modal-image-container">
+          <img id="modal-img" src="" alt="Zoom Foto">
+        </div>
+        <p id="modal-caption" class="modal-caption"></p>
+        <div class="modal-nav">
+          <button id="modal-prev" class="modal-nav-btn">&#10094; Sebelumnya</button>
+          <button id="modal-next" class="modal-nav-btn">Selanjutnya &#10095;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         8. SPECIAL BUTTON SECTION (JANGAN KLIK INI)
+         ============================================== -->
+    <section class="section prank-section">
+      <div class="container text-center">
+        <div class="prank-box glass-card reveal-item">
+          <div class="prank-badge">⚠️ Peringatan Manis ⚠️</div>
+          <h2 class="prank-title">Ada Tombol Rahasia...</h2>
+          <p class="prank-desc">Tombol ini punya sihir khusus. Penasaran apa yang terjadi kalau Kiki klik?</p>
+          
+          <button id="btn-special" class="btn-romantic btn-danger btn-bounce">
+            <span class="btn-text">Jangan Klik Ini ❤️</span>
+          </button>
+          
+          <p id="prank-counter-text" class="prank-counter-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Custom Popup Modal -->
+    <div id="special-popup-modal" class="custom-modal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-dialog glass-card animate-zoom">
+        <div class="popup-heart-icon">💖</div>
+        <h2 class="popup-title">KIKI, LANA SAYANG BANGET SAMA KIKI! ❤️</h2>
+        <p class="popup-message">
+          Mau seberapa kali kiki klik, perasaan Lana gak akan pernah berubah. Kiki itu segalanya buat Lana, bidadari tercinta.
+        </p>
+        <button id="btn-close-special-popup" class="btn-romantic btn-primary">
+          Sayang Lana Juga! 🥰
+        </button>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         9. MINI LOVE GAME SECTION
+         ============================================== -->
+    <section id="game" class="section game-section">
+      <div class="container">
+        <div class="section-header text-center reveal-item">
+          <span class="section-tag">🎮 Game Romantis</span>
+          <h2 class="section-title">Seberapa Kenal Kiki Sama Lana? 😆</h2>
+          <p class="section-desc">Coba jawab pertanyaan-pertanyaan gemas di bawah ini yaa!</p>
+        </div>
+
+        <div class="game-container glass-card reveal-item">
+          <!-- Quiz Screen -->
+          <div id="quiz-screen" class="quiz-screen">
+            <div class="quiz-progress-bar-container">
+              <div id="quiz-progress-bar" class="quiz-progress-fill" style="width: 20%;"></div>
+            </div>
+            <div class="quiz-meta">
+              <span id="quiz-number" class="quiz-number-badge">Pertanyaan 1 dari 5</span>
+              <span class="quiz-badge">💕 Fun Love Quiz</span>
+            </div>
+
+            <h3 id="quiz-question" class="quiz-question-text">
+              1. Siapa yang paling bucin di antara kita berdua?
+            </h3>
+
+            <div id="quiz-options" class="quiz-options-grid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Quiz Result Screen -->
+          <div id="quiz-result-screen" class="quiz-result-screen hidden">
+            <div class="result-heart-burst">✨ 💖 ✨</div>
+            <p class="result-lead">Apapun jawaban Kiki...</p>
+            <p class="result-middle">Jawabannya tetap sama...</p>
+            <h2 class="result-climax gradient-text-romantic">"KITA ❤️"</h2>
+            <p class="result-desc">
+              Karena dalam setiap tawa, kangen, dan cinta, kita selalu melengkapinya berdua.
+            </p>
+            <button id="btn-replay-quiz" class="btn-romantic btn-secondary">
+              🔄 Mainkan Lagi
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         10. FUTURE WISHES SECTION (BUCKET LIST)
+         ============================================== -->
+    <section id="wishes" class="section wishes-section">
+      <div class="container">
+        <div class="section-header text-center reveal-item">
+          <span class="section-tag">🌅 Impian Bersama</span>
+          <h2 class="section-title">Hal-Hal yang Ingin Lana Lakukan Bersama Kiki</h2>
+          <p class="section-desc">Daftar harapan manis yang ingin kita wujudkan bersama satu per satu.</p>
+        </div>
+
+        <div class="wishes-grid">
+          <div class="wish-card glass-card reveal-item">
+            <span class="wish-icon">🌅</span>
+            <h3 class="wish-title">Melihat Sunset Bersama</h3>
+            <p class="wish-desc">Duduk berdampingan sambil menikmati senja yang hangat bersama senyum Kiki.</p>
+            <div class="wish-check" title="Klik untuk tandai wishlist">❤️ Wishlist</div>
+          </div>
+
+          <div class="wish-card glass-card reveal-item">
+            <span class="wish-icon">🌊</span>
+            <h3 class="wish-title">Jalan-Jalan ke Pantai</h3>
+            <p class="wish-desc">Mendengarkan deburan ombak, bermain pasir, dan menggenggam tangan Kiki erat.</p>
+            <div class="wish-check" title="Klik untuk tandai wishlist">❤️ Wishlist</div>
+          </div>
+
+          <div class="wish-card glass-card reveal-item">
+            <span class="wish-icon">🍜</span>
+            <h3 class="wish-title">Makan Berdua</h3>
+            <p class="wish-desc">Kulineran bareng, mencoba makanan enak favorit Kiki, dan berbagi tawa di meja makan.</p>
+            <div class="wish-check" title="Klik untuk tandai wishlist">❤️ Wishlist</div>
+          </div>
+
+          <div class="wish-card glass-card reveal-item">
+            <span class="wish-icon">📸</span>
+            <h3 class="wish-title">Mengabadikan Lebih Banyak Momen</h3>
+            <p class="wish-desc">Membuat ribuan foto dan video lucu kita untuk dikenang di masa depan.</p>
+            <div class="wish-check" title="Klik untuk tandai wishlist">❤️ Wishlist</div>
+          </div>
+
+          <div class="wish-card glass-card reveal-item">
+            <span class="wish-icon">🌙</span>
+            <h3 class="wish-title">Ngobrol Sampai Larut Malam</h3>
+            <p class="wish-desc">Membicarakan segala hal mulai dari hal receh sampai mimpi masa depan kita.</p>
+            <div class="wish-check" title="Klik untuk tandai wishlist">❤️ Wishlist</div>
+          </div>
+
+          <div class="wish-card glass-card reveal-item">
+            <span class="wish-icon">✈️</span>
+            <h3 class="wish-title">Pergi ke Tempat Baru</h3>
+            <p class="wish-desc">Menjelajahi tempat-tempat indah yang belum pernah kita kunjungi bersama.</p>
+            <div class="wish-check" title="Klik untuk tandai wishlist">❤️ Wishlist</div>
+          </div>
+
+          <div class="wish-card glass-card reveal-item">
+            <span class="wish-icon">🏡</span>
+            <h3 class="wish-title">Membuat Lebih Banyak Kenangan</h3>
+            <p class="wish-desc">Menulis ribuan hari bahagia bersama dan melewati suka duka berdua.</p>
+            <div class="wish-check" title="Klik untuk tandai wishlist">❤️ Wishlist</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         11. FINAL SECTION (STARRY ROMANTIC NIGHT)
+         ============================================== -->
+    <section class="section final-night-section">
+      <div class="stars-overlay"></div>
+      <div class="container text-center">
+        <div class="final-content reveal-item">
+          
+          <p class="final-line final-step-1">"Kalau suatu hari Kiki bertanya..."</p>
+          <p class="final-line final-step-2">"Kenapa Lana memilih Kiki?"</p>
+          
+          <blockquote class="final-quote final-step-3">
+            "Karena dari begitu banyak orang di dunia ini,<br>
+            entah bagaimana,<br>
+            <strong>hati Lana memilih Kiki.</strong>"
+          </blockquote>
+
+          <div class="final-names-box final-step-4">
+            <!-- NAMA UTAMA -->
+            <h2 class="final-name-glow">INDRISARI ISMAIL <span class="heart-pulse">❤️</span></h2>
+            <!-- TANGGAL JADIAN -->
+            <p class="final-infinity-date">25 Agustus 2020 — &infin;</p>
+          </div>
+
+          <div class="final-heart-center">
+            <div class="pulsing-heart-3d">❤️</div>
+          </div>
+
+          <!-- 12. SECRET MESSAGE BUTTON -->
+          <div class="secret-btn-wrapper">
+            <button id="btn-secret-msg" class="btn-secret">
+              <span>✨ Secret Message</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="romantic-footer">
+      <div class="container text-center">
+        <p class="footer-text">
+          Dibuat dengan segenap cinta &amp; kasih sayang dari <strong>Lana</strong> untuk <strong>Indrisari Ismail (Kiki / Syg)</strong> ❤️
+        </p>
+        <p class="footer-subtext">25 Agustus 2020 — Selamanya di Hati</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ==============================================
+       12. SECRET MESSAGE MODAL
+       ============================================== -->
+  <div id="secret-modal" class="custom-modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog glass-card secret-dialog animate-zoom">
+      <button id="btn-close-secret" class="modal-close-btn">&times;</button>
+      <div class="secret-icon">💌</div>
+      <span class="secret-tag">SPECIAL FOR KIKI</span>
+      <h3 class="secret-title">PSST...</h3>
+      <div class="secret-body">
+        <p>Kalau kiki sampai membaca ini, berarti kiki sudah sampai di akhir...</p>
+        <p>Tapi sebenarnya...</p>
+        <p class="secret-highlight">"Lana belum selesai sayang sama kiki."</p>
+        <div class="secret-big-heart">❤️</div>
+      </div>
+      <button id="btn-secret-ack" class="btn-romantic btn-primary">
+        Tersenyum &amp; Peluk Online 🥰
+      </button>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>

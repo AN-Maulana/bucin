@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a8edea"/>
+      <stop offset="100%" stop-color="#fed6e3"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="700" fill="url(#bg5)"/>
+  
+  <!-- Beach & Heart Waves -->
+  <circle cx="300" cy="240" r="110" fill="#ffffff" fill-opacity="0.5"/>
+  <g transform="translate(300, 240) scale(1.1)">
+    <path d="M 0 -20 A 26 26 0 0 0 -45 15 Q 0 70 0 85 Q 0 70 45 15 A 26 26 0 0 0 0 -20 Z" fill="#ff758f"/>
+  </g>
+  <path d="M 0 450 Q 150 420 300 460 T 600 440 L 600 700 L 0 700 Z" fill="#ffffff" fill-opacity="0.4"/>
+
+  <!-- Typography overlay placeholder -->
+  <rect x="60" y="580" width="480" height="70" rx="16" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="300" y="612" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#0077b6" text-anchor="middle">☀️ Beautiful Day ☀️</text>
+  <text x="300" y="635" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="#666" text-anchor="middle">Klik / ganti dengan foto jalan-jalan</text>
+</svg>

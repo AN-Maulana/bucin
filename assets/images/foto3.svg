@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cd9cf2"/>
+      <stop offset="100%" stop-color="#f6f3ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="700" fill="url(#bg3)"/>
+  
+  <g transform="translate(300, 260)">
+    <circle cx="0" cy="0" r="130" fill="#ffffff" fill-opacity="0.4"/>
+    <!-- Double cute hearts -->
+    <path d="M -30 -40 A 25 25 0 0 0 -70 0 Q -30 60 -30 75 Q -30 60 10 0 A 25 25 0 0 0 -30 -40 Z" fill="#9d4edd"/>
+    <path d="M 30 -20 A 25 25 0 0 0 -10 20 Q 30 80 30 95 Q 30 80 70 20 A 25 25 0 0 0 30 -20 Z" fill="#ff4d6d"/>
+  </g>
+
+  <!-- Sparkles -->
+  <g fill="#ffffff">
+    <circle cx="100" cy="150" r="6"/>
+    <circle cx="500" cy="220" r="5"/>
+    <circle cx="160" cy="400" r="4"/>
+  </g>
+
+  <!-- Typography overlay placeholder -->
+  <rect x="60" y="580" width="480" height="70" rx="16" fill="#ffffff" fill-opacity="0.85"/>
+  <text x="300" y="612" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" fill="#7b2cbf" text-anchor="middle">🎀 Little Happiness 🎀</text>
+  <text x="300" y="635" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="#666" text-anchor="middle">Klik / ganti dengan foto senyum manisnya</text>
+</svg>
